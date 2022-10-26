@@ -1,13 +1,13 @@
 import { galleryItems } from './gallery-items.js';
 
-const gallMainBox = document.querySelector('.gallery');
-const cardsGallery = crtGalImg(galleryItems);
+const gallMainBox = document.querySelector('.gallery');  // parent box
+const cardsGallery = crtGalImg(galleryItems);           // passing an array to the function
 
 gallMainBox.insertAdjacentHTML('afterbegin', cardsGallery);
 
-gallMainBox.addEventListener('click', onGalleryClick);
+gallMainBox.addEventListener('click', onGalleryClick);          // add listener
 
-// html gallery
+// render gallery html 
 function crtGalImg(galleryItems) {
     return galleryItems
         .map(({ preview, original, description }) => {
@@ -33,23 +33,36 @@ function onGalleryClick(evnt) {
 
       if (evnt.target.nodeName !== "IMG") {
         return;
-        } else {
+        } 
         const inst = basicLightbox.create(`
             <div class="modal">
                 <img src="${evnt.target.dataset.source}" width="1100" height="800">
-            </div>`
-            )
-            inst.show();  
-            console.log(evnt.target.dataset.source);
-          window.addEventListener("keydown", (evnt) => {
-                // closing by Esc
+            </div>`,
+            {
+
+                onClose: (inst) => {
+                    document.removeEventListener('keydown', toEsc);
+                    
+                },
+                onShow: (inst) => {
+                    document.addEventListener('keydown', toEsc);
+                   
+                },
+            }
+        )
+          inst.show();
+          
+          console.log(evnt.target.dataset.source);
+          
+          // closing by Esc
+            function toEsc(evnt){
                 if (evnt.code === "Escape") {
                     inst.close();
                 }
-            });
+            }
         } 
 
-}
+
 
 
 
