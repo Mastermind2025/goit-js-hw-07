@@ -38,6 +38,9 @@ function onGalleryClick(evnt) {
             <div class="modal">
                 <img src="${evnt.target.dataset.source}" width="1100" height="800">
             </div>`,
+
+            //Object
+            
             {
 
                 onClose: (inst) => {

@@ -1,13 +1,14 @@
 import { galleryItems } from './gallery-items.js';
 
-const boxWrapMn = document.querySelector('.gallery');
-const cardsLightbox = boxNewWrap(galleryItems);
+const boxWrapMn = document.querySelector('.gallery');    // get gallery parent box
+const cardsLightbox = boxNewWrap(galleryItems);         // passing an array to the function
 
+//result of work function boxNewWrap to place into parent box
 boxWrapMn.insertAdjacentHTML('afterbegin', cardsLightbox);
 
-boxWrapMn.addEventListener('click', toLightboxClick);
 
-// lightbox
+
+// function create lightbox
 function boxNewWrap(galleryItems) {
     return galleryItems
         .map(({ preview, original, description }) => {
@@ -24,15 +25,7 @@ function boxNewWrap(galleryItems) {
     
 }
 
-function toLightboxClick(event) {
-    
-    event.preventDefault();
-
-    
-    if (event.target.nodeName !== "IMG") {
-        return;
-    }
-   
+// modal
     let lightbox = new SimpleLightbox('.gallery a', {
         captionsData: 'alt',
         captionDelay: 250,
@@ -40,4 +33,3 @@ function toLightboxClick(event) {
         scaleImageToRatio: true,
     });
  
-}
