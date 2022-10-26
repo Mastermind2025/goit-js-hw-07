@@ -41,31 +41,15 @@ function onGalleryClick(evnt) {
             )
             inst.show();  
             console.log(evnt.target.dataset.source);
-            window.addEventListener("keydown", (evnt) => {
+          window.addEventListener("keydown", (evnt) => {
+                // closing by Esc
                 if (evnt.code === "Escape") {
                     inst.close();
                 }
             });
         } 
 
-    changeActiveClass();
-    
-    const imgItem = e.target;
-    const parentGalleryItem = imgItem.closest('.gallery__item');
-    addActiveClass(parentGalleryItem);
 }
 
-//  remove class
-function changeActiveClass() {
-    const currentActiveItem = document.querySelector('.gallery__item.is-active');
-
-    if (currentActiveItem) {
-        currentActiveItem.classList.remove('is-active');
-    }
-}
-// add class
-function addActiveClass(item) {
-    item.classList.add('is-active');
-}
 
 
