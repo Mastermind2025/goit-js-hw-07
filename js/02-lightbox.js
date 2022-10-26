@@ -27,9 +27,9 @@ function boxNewWrap(galleryItems) {
 
 // modal
     let lightbox = new SimpleLightbox('.gallery a', {
-        captionsData: 'alt',
-        captionDelay: 250,
-        animationSpeed: 200,
-        scaleImageToRatio: true,
+        captionsData: 'alt',    //get the caption from given attribute
+        captionDelay: 250,      //adds a delay before the caption shows (in ms)
+        animationSpeed: 200,    //how long takes the slide animation
+        scaleImageToRatio: true,//scales the image up to the defined ratio
     });
  

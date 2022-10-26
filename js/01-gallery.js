@@ -29,7 +29,7 @@ function crtGalImg(galleryItems) {
 
 function onGalleryClick(evnt) {
     
-    evnt.preventDefault();
+    evnt.preventDefault();                      //Cancel browser default actions
 
       if (evnt.target.nodeName !== "IMG") {
         return;
@@ -40,7 +40,7 @@ function onGalleryClick(evnt) {
             </div>`,
 
             //Object
-            
+
             {
 
                 onClose: (inst) => {
