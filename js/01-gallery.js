@@ -1,4 +1,4 @@
-import { galleryItems } from './gallery-items.js';
+import { galleryItems } from './gallery-items.js';  // import array from gallery-items.js
 
 const gallMainBox = document.querySelector('.gallery');  // parent box
 const cardsGallery = crtGalImg(galleryItems);           // passing an array to the function
