@@ -1,4 +1,4 @@
-import { galleryItems } from './gallery-items.js';
+import { galleryItems } from './gallery-items.js';  // import array from gallery-items.js
 
 const boxWrapMn = document.querySelector('.gallery');    // get gallery parent box
 const cardsLightbox = boxNewWrap(galleryItems);         // passing an array to the function
